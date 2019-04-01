@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx} %pa' las imágenes
+\usepackage[utf8]{inputenc} %pa' los acentitos
+\graphicspath{{/home/Valeria/Practica03/Otros}}
+
+\title{\Huge Programación.}
+\author{\huge Valeria Ortiz Cervantes}
+\date{31 de marzo del 2019}
+
+\begin{document}
+\maketitle
+\begin{center}
+	\subsection*{\LARGE Universidad Nacional Autónoma de México.\\Facultad de Ciencias.\\}
+	\includegraphics[scale=3]{/1.jpg}
+\end{center}
+\newpage
+\begin{center}
+	\title{\LARGE Práctica 3. Preguntas.}
+\end{center}
+\section*{Datos primitivos.}
+Concepto:\\Los tipos de datos simples o primitivos son los que no están compuestos por otras estructuras de datos, y tienen como característica común que cada variable representa a un elemento.
+\begin{enumerate}
+	\item Java:
+	\begin{enumerate}
+		\item Byte: es del tipo entero y representa un dato de 8 bits con signo, ocupa 1 byte, de tal manera que puede almacenar los valores numéricos del -128 al 127.
+		\item Short: es del tipo entero y representa un dato de 16 bits con signo, ocupa 2 bytes, de manera que almacena los valores numéricos del -32 768 al 32 767.
+		\item Integer: es del tipo entero y es un dato de 32 bits con signo, ocupa 4 bytes, por lo cual almacena los valores hasta el 2x109, corresponden al conjunto de los números enteros. 
+		\item Long: es del tipo entero y es un dato de 64 bits con signo, ocupa 8 bytes.
+		\item Float: es del tipo decimal simple y es un dato para almacenar números en coma flotante con precisión simple de 32 bits, ocupa 4 bytes, corresponden al conjunto de los números reales. 
+		\item Double: es del tipo decimal doble y es un dato para almacenar números en coma flotante con doble precisión de 64 bits, ocupa 8 bytes.
+		\item Boolean: es para definir tipos de datos booleanos, es decir, aquellos que tienen un valor de true o false con 1 bit de información, ocupa 1 byte.
+		\item Char: es un tipo de dato que representa a un carácter unicode sencillo de 16 bits, ocupa 2 bytes. 
+	\end{enumerate}
+	\item Python:
+	\begin{enumerate}
+		\item Integer
+		\item Long (solo en Python 2, en Python 3 ya no)
+		\item Float 
+		\item Boolean 
+		\item Complex: corresponden al conjunto de los números complejos, se compone de dos números de tipo Float separados por el operador de adición “+”, en el que el primer número corresponde al componente en los números reales y el componente en los números imaginarios es identificado añadiéndole la letra “j” al final.  
+		\item String: son secuencias de caracteres delimitados por comillas (“ ”) o apostrofes (‘ ‘).
+		\item None: este tipo representa un valor “vacío”.
+	\end{enumerate}
+	\item C++:
+	\begin{enumerate}
+		\item Char
+		\item Integer
+		\item Short Integer
+		\item Long Integer
+		\item Boolean 
+		\item Float
+		\item Double
+		\item Long Double 
+	\end{enumerate}
+	\item C$\#$:
+	\begin{enumerate}
+		\item Integer
+		\item Float 
+		\item Double
+		\item Char
+		\item Boolean
+	\end{enumerate}
+	\item R:
+	\begin{enumerate}
+		\item Integer
+		\item Complex
+		\item Logical
+		\item Matrix 
+		\item String 
+	\end{enumerate}
+	\item Javascript:
+	\begin{enumerate}
+		\item Boolean 
+		\item Null
+		\item Undefined 
+		\item Number
+		\item String
+		\item Symbol
+	\end{enumerate}
+\end{enumerate}
+\section*{Algoritmos y su complejidad.}
+\begin{enumerate}
+	\item Problema: Ordenar los elementos de una lista.\\Algoritmo: Quicksort
+	\begin{enumerate}
+		\item Elegir al azar un elemento de la lista (el pivote).
+		\item Reordenar los demás elementos de la lista a cada lado del pivote, de manera que a un lado queden todos los menores que él y al otro lado los mayores.
+		\item La lista se separa en dos sublistas, una formada por los elementos a la izquierda del pivote y otra por los elementos a la derecha. 
+		\item Se repite el proceso de forma recursiva para cada sublista mientras éstas contengan más de un elemento. 
+	\end{enumerate}
+	Complejidad:
+	\begin{enumerate}
+		\item En el mejor caso, el pivote termina en el centro de la lista, dividiéndola en dos sublistas del mismo tamaño. En este caso el orden de complejidad del algoritmo es O(n log(n)), donde n es el tamaño de la entrada. 
+		\item En el peor caso, el pivote termina en un extremo de la lista, entonces el orden de complejidad será de O(n2). Usualmente ocurre en listas que se encuentran ordenadas o casi ordenadas. 
+		\item En el caso promedio la complejidad es de O(n log(n)).n el caso promedio la complejidad es de O(n log(n)).
+	\end{enumerate}
+	\item Problema: Obtener el siguiente término de la sucesión de Fibonacci.\\Algoritmo:
+	\begin{enumerate}
+		\item Si hacemos una programación iterativa de manera en que la entrada sean dos términos de la sucesión, se realice la suma y te devuelva el siguiente término la complejidad será de O(n), siendo n el número de sumas totales.
+		\item ii. Si consideramos las potencias de la matriz 
+		\[
+		\begin{bmatrix}
+			1 & 1 \\
+			1 & 0
+		\end{bmatrix}
+		\]
+		es fácil demostrar por inducción que están relacionadas doblemente con la sucesión de Fibonacci, por la igualdad
+		\begin{center}
+		\[
+		$\begin{bmatrix}
+			1 & 1 \\
+			1 & 0
+		\end{bmatrix}^{n-1}$ = 
+		\begin{bmatrix}
+		F_{n} & F_{n-1} \\
+		F_{n-1} & F_{n-2}
+		\end{bmatrix}
+		\]
+		\end{center}
+		Por tanto, aplicando el algoritmo de la exponenciación rápida a la matriz es posible calcular el n-ésimo término de la sucesión en $log_{2}$(n) iteraciones, por lo que la complejidad sería de O($log_{2}$(n))
+	\end{enumerate}
+	\item Problema: Calcular el máximo común divisor de dos números.\\Algoritmo: Utilizaremos el algoritmo de Euclides.
+	\begin{enumerate}
+		\item Si hacemos una función recursiva que tome en cuenta el residuo de la división de ambos números.  
+		\item En general, el número de divisiones efectuadas por el algoritmo nunca supera 5 veces el número de dígitos que tienen estos números.
+		\item Lo cual significa que la complejidad será de O(log n), siendo n el mayor de los números. 
+	\end{enumerate}
+\end{enumerate}
+\end{document}
